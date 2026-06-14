@@ -1,0 +1,363 @@
+/* ------------------------------
+   GLOBAL SETTINGS
+------------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: #E3F2FD;
+  background-color: #0A1929;
+  overflow-x: hidden;
+}
+
+/* ------------------------------
+   HEADER / TOPBAR
+------------------------------ */
+.topbar {
+  background: #0D47A1;
+  padding: 12px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px #000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.topbar .left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar .proj-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #E3F2FD;
+}
+
+.topbar .menu-btn {
+  font-size: 26px;
+  color: #E3F2FD;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.topbar .menu-btn:hover {
+  color: #00E5FF;
+}
+
+.topbar .right .btn {
+  margin-left: 10px;
+}
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+.btn {
+  background-color: #00E5FF;
+  color: #0A1929;
+  padding: 8px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #80DEEA;
+}
+
+.btn.accent {
+  background-color: #0288D1;
+  color: white;
+}
+
+.btn.accent:hover {
+  background-color: #03A9F4;
+}
+
+/* ------------------------------
+   SIDEBAR
+------------------------------ */
+.sidebar {
+  background: linear-gradient(180deg, #0D1B2A, #1B263B);
+  width: 260px;
+  height: 100%;
+  position: fixed;
+  left: -260px;
+  top: 65px;
+  bottom: 0;
+  padding: 20px 15px;
+  transition: 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+  border-right: 2px solid #0A1929;
+  color: #E3F2FD;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sidebar-header h2 {
+  color: #00E5FF;
+  font-size: 1.4rem;
+}
+
+.sidebar-header .close-btn {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: #00E5FF;
+  cursor: pointer;
+}
+
+.sidebar-section {
+  margin-bottom: 25px;
+}
+
+.sidebar-section h4 {
+  font-size: 0.9rem;
+  color: #90CAF9;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #1E3A8A;
+  padding-bottom: 4px;
+}
+
+.sidebar-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-section ul li {
+  margin: 10px 0;
+}
+
+.sidebar-section ul li a {
+  color: #E3F2FD;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  word-spacing: 2px;
+  letter-spacing: 0.5px;
+  padding: 6px 0;
+}
+
+/* Space between sidebar icon and text */
+.sidebar-section ul li a i {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.sidebar-section ul li a:hover i {
+  color: #00E5FF;
+  text-shadow: 0 0 6px #00E5FF;
+}
+
+.sidebar-section ul li a:hover {
+  color: #00E5FF;
+  transform: translateX(5px);
+}
+
+/* ------------------------------
+   HERO / HOME PAGE SECTION
+------------------------------ */
+main.hero {
+  margin-top: 80px;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+  background: url("../assets/bg_cyber.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+}
+
+main.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 41, 0.8);
+  z-index: 1;
+}
+
+.hero-text,
+.hero-image {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  width: 50%;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #E3F2FD;
+  line-height: 1.4;
+}
+
+.hero-text h1 span {
+  color: #00E5FF;
+}
+
+.hero-text p {
+  color: #90CAF9;
+  font-size: 1.1rem;
+  margin: 20px 0 30px;
+  max-width: 500px;
+}
+
+.get-started {
+  background: linear-gradient(90deg, #00E5FF, #2196F3);
+  color: #0A1929;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.get-started:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #03A9F4, #00BCD4);
+}
+
+.hero-image img {
+  width: 400px;
+  animation: float 4s ease-in-out infinite;
+  filter: drop-shadow(0px 0px 10px #00E5FF);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+/* ------------------------------
+   FEATURES SECTION
+------------------------------ */
+.features {
+  background: #0D1B2A;
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 2rem;
+  color: #00E5FF;
+  margin-bottom: 40px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature {
+  background: #13294B;
+  border-radius: 15px;
+  padding: 25px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  background: #1A3A6B;
+}
+
+.feature i {
+  font-size: 2rem;
+  color: #00E5FF;
+  margin-bottom: 10px;
+}
+
+.feature h3 {
+  color: #E3F2FD;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  color: #B3E5FC;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.footer {
+  background: #0D47A1;
+  text-align: center;
+  padding: 15px;
+  color: #E3F2FD;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ------------------------------
+   SCROLL REVEAL ANIMATION
+------------------------------ */
+.reveal {
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+@media (max-width: 768px) {
+  main.hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 120px 5%;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-image img {
+    width: 300px;
+    margin-top: 40px;
+  }
+}
+
+
+
+
+
+
